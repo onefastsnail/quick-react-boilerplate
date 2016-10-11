@@ -1,15 +1,10 @@
 //basic gulp packages
 var gulp = require('gulp');
-    concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    jshint = require('gulp-jshint'),
-    plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps');
 
 //extra for building/deployment
-var gutil= require('gulp-util'),
-    ignore = require('gulp-ignore'),
-    runSequence = require('run-sequence');
+var runSequence = require('run-sequence');
 
 //for react
 var buffer = require('vinyl-buffer'),
@@ -40,7 +35,7 @@ gulp.task('react', function() {
     .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.react.dist))
-  }, 500);
+  }, 200);
 });
 
 //setup watch tasks

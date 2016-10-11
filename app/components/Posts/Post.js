@@ -8,13 +8,15 @@ var Post = React.createClass({
 
   render: function(){
 
-    //console.log(this.props.data); 
+    var excerpt = this.props.data.post_content.replace(/(<([^>]+)>)/ig,"");
+
+    excerpt = excerpt.substring(0, 255);
 
     return(
       <div>
-        <h1>{this.props.data.post_title}</h1>
-        { /* <h3>{this.props.data.post_date}</h3>
-        <div dangerouslySetInnerHTML={{__html: this.props.data.post_content}}></div> */ }
+        <h3>{this.props.data.post_title}</h3>
+        <p>{this.props.data.post_date}</p>
+        <div dangerouslySetInnerHTML={{__html: excerpt}}></div>
       </div>
     );
 

@@ -10,9 +10,14 @@ var CHANGE_EVENT = 'change';
 var _store = {
     list: [],
     filtered: [],
+    paginated: [],
 
     query:'',
-    sortBy: 'alphabetically'
+    sortBy: 'newest',
+
+    start: 0,
+    end: 4,
+    perPage: 4
 };
 
 //private methods, here we will filter the data and emit the change back to the components, in this case new posts list
@@ -45,6 +50,9 @@ var filterPosts = function(filter) {
             return 0;
         });
     }
+
+    //now lets paginate
+    _store.paginated = _store.filtered.slice(_store.start, _store.end);
 
     PostStore.emit(CHANGE_EVENT);//emit change to the listeners to get the component to update thier own states
     return true;

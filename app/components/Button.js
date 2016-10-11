@@ -6,7 +6,7 @@ var Button = React.createClass({
   getDefaultProps: function() {
     return {
       href: '#',
-      className: 'btn',
+      className: 'btn btn-primary',
       text: 'Button',
     };
   },
